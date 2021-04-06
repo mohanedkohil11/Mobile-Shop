@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import AddNewMobile from './pages/AddNewMobile';
 import HomePage from './pages/HomePage';
 import Header from './reusable/Header';
-import './styles/globals.scss';
+import './sass/base/globals.scss';
 import 'antd/dist/antd.css';
 
 function App() {

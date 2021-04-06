@@ -1,0 +1,33 @@
+@import "../../../abstracts/varibles.scss";
+
+.dataTable {
+  width: 100%;
+  margin-top: 5rem;
+
+  tbody {
+    >*+* {
+      cursor: pointer;
+    }
+  }
+
+  th {
+    background-color: $light-grey;
+    padding: 0.8rem;
+  }
+
+  td {
+    padding: 0.8rem;
+  }
+
+  tr {
+    transition: $trans-250;
+
+    &:hover {
+      background-color: $light-grey !important;
+    }
+  }
+
+  tr:nth-child(odd) {
+    background-color: $off-light;
+  }
+}
