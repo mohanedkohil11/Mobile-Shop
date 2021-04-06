@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ChartsSection from '../components/home/ChartsSection'
 import DataTable from '../components/home/DataTable'
 import SearchForm from '../components/home/SearchForm'
-import SearchResults from '../components/home/SearchResults'
+import MobileDetails from '../components/home/MobileDetails'
 import styles from '../sass/layout/components/home/home.module.scss'
 export default function HomePage() {
     const [database, setDatabase] = useState({});
@@ -21,7 +21,7 @@ export default function HomePage() {
             <div>
                 <SearchForm />
                 <DataTable database={database} setSelectedMobile={setSelectedMobile} />
-                <SearchResults />
+                <MobileDetails selectedMobile={selectedMobile} />
             </div>
 
             <div>
