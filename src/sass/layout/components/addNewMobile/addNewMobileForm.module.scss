@@ -1,0 +1,27 @@
+@import "../../../abstracts/varibles.scss";
+
+.addNewMobileCont {
+    background-color: $white-smoke;
+    border-radius: 0.5rem;
+}
+
+.addNewMobile {
+    display: flex;
+    // justify-content: space-between;
+    margin-top: 5rem;
+
+    &>* {
+        width: 40%;
+    }
+
+}
+
+.inputContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+
+    input {
+        width: 70%;
+    }
+}
