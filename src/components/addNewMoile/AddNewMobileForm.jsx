@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
+import { useHistory } from "react-router-dom";
 import { Button, Input, Radio, Form } from 'antd';
 import { Select } from 'antd';
 import Checkbox from 'antd/lib/checkbox/Checkbox';
 const { Option } = Select;
 import styles from '../../sass/layout/components/addNewMobile/addNewMobileForm.module.scss'
 export default function AddNewMobileForm() {
+
+    let history = useHistory();
+
     const [mobileData, setMobileData] = useState({});
     const brands = ['Sony', 'Samsung', 'Apple', 'Nokia', 'LG'];
     const memory = ['16GB', '32GB', '64GB', '128GB'];
@@ -40,6 +44,8 @@ export default function AddNewMobileForm() {
             JSON.stringify(database)
         );
 
+        history.push('/');
+
         console.log(database);
     };
 
@@ -49,6 +55,10 @@ export default function AddNewMobileForm() {
     }
 
 
+    const onClickBackBtn = (e) => {
+        e.preventDefault();
+        history.push('/');
+    }
     return (
         <Form
             {...layout}
@@ -74,7 +84,7 @@ export default function AddNewMobileForm() {
 
                     <Form.Item
                         label="Manfacture year"
-                        name="Manfacture year"
+                        name="ManfactureYear"
                         rules={[{ required: true, message: 'Manfacture Year Required !' }]}
                     >
                         <Input type='number' min={1} placeholder='Enter Manfacture Year' />
@@ -239,7 +249,7 @@ export default function AddNewMobileForm() {
             <div>
                 <Form.Item className='test' {...tailLayout}>
 
-                    <Button type="primary" style={{ marginRight: '3rem' }}>
+                    <Button type="primary" style={{ marginRight: '3rem' }} onClick={onClickBackBtn}>
                         Back
                     </Button>
                     <Button type="primary" htmlType="submit" >

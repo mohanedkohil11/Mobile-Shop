@@ -1,6 +1,26 @@
-import React from 'react'
+import React, { Fragment, useState } from 'react'
 import styles from '../../sass/layout/components/home/dataTable.module.scss'
-export default function DataTable() {
+export default function DataTable({ database, setSelectedMobile }) {
+
+    const mobileRowData = () => {
+        let tableRows = [];
+        (Object.values(database).length > 0) && Object.values(database).map(mobileObject => {
+            (Object.values(mobileObject).length > 0) && Object.values(mobileObject).map(mobileData => {
+                tableRows.push(
+                    <Fragment key={mobileData.Model}>
+                        <tr onClick={() => { setSelectedMobile(mobileData) }}>
+                            <td>{mobileData.Brand}</td>
+                            <td>{mobileData.Model}</td>
+                            <td>{mobileData.ManfactureYear}</td>
+                        </tr>
+                    </Fragment>
+                )
+            }
+            )
+        });
+
+        return tableRows;
+    }
     return (
         <div>
             <table className={styles.dataTable}>
@@ -11,21 +31,7 @@ export default function DataTable() {
                         <th>Model</th>
                         <th>Year</th>
                     </tr>
-                    <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                    </tr>
-                    <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                    </tr>
-                    <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
-                    </tr>
+                    {mobileRowData()}
                 </tbody>
             </table>
         </div>
