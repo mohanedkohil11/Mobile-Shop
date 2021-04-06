@@ -1,10 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import AddNewMobile from './pages/AddNewMobile';
+import HomePage from './pages/HomePage';
+import Header from './reusable/Header';
+import './styles/globals.scss';
+import 'antd/dist/antd.css';
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <>
+      <BrowserRouter >
+        <Header />
+        <main >
+          <Switch>
+
+            <Route path="/" exact >
+              <HomePage />
+            </Route>
+
+            <Route path="/add-new-mobile" exact >
+              <AddNewMobile />
+            </Route>
+
+          </Switch>
+
+        </main>
+      </BrowserRouter>
+    </>
   );
 }
 
