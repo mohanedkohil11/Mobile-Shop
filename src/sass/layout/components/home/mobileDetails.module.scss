@@ -1,7 +1,14 @@
+@import "../../../abstracts/varibles.scss";
+
 .mobileDetails {
-    margin-top: 5rem;
+    padding: 5rem 0;
 }
 
 .cardContainer {
-    width: 48%;
+    width: 100%;
+}
+
+.option {
+    text-align: center;
+    color: $primary-dark;
 }

@@ -3,8 +3,10 @@ import { useHistory } from "react-router-dom";
 import { Button, Input, Radio, Form } from 'antd';
 import { Select } from 'antd';
 import Checkbox from 'antd/lib/checkbox/Checkbox';
+import styles from '../../sass/layout/components/addNewMobile/addNewMobileForm.module.scss';
+
 const { Option } = Select;
-import styles from '../../sass/layout/components/addNewMobile/addNewMobileForm.module.scss'
+
 export default function AddNewMobileForm() {
 
     let history = useHistory();
@@ -54,7 +56,6 @@ export default function AddNewMobileForm() {
         setMobileData({ ...mobileData, options: { ...mobileData.options, [e.target.value]: e.target.checked } })
     }
 
-
     const onClickBackBtn = (e) => {
         e.preventDefault();
         history.push('/');
@@ -72,7 +73,7 @@ export default function AddNewMobileForm() {
 
                     <Form.Item
                         label="Model"
-                        name="Model"
+                        name="model"
                         rules={[{ required: true, message: 'Model Required !' }]}
                     >
                         <Input placeholder='Enter Model Name' />
@@ -85,7 +86,7 @@ export default function AddNewMobileForm() {
 
                     <Form.Item
                         label="Manfacture year"
-                        name="ManfactureYear"
+                        name="manfactureYear"
                         rules={[{ required: true, message: 'Manfacture Year Required !' }]}
                     >
                         <Input type='number' min={1} placeholder='Enter Manfacture Year' />
@@ -98,7 +99,7 @@ export default function AddNewMobileForm() {
 
                     <Form.Item
                         label="Brand"
-                        name="Brand"
+                        name="brand"
                         rules={[{ required: true, message: 'Brand Required !' }]}
                     >
                         <Select placeholder='Select brand' >
@@ -125,7 +126,7 @@ export default function AddNewMobileForm() {
 
                     <Form.Item
                         label="Memory"
-                        name="Memory"
+                        name="memory"
                     >
                         <Select placeholder='Select Memory' >
                             {
@@ -152,7 +153,7 @@ export default function AddNewMobileForm() {
 
                 <div>
                     <Form.Item
-                        label="Options"
+                        label="options"
                     >
                         {
                             checkBoxes.map((item, index) => {
@@ -187,7 +188,7 @@ export default function AddNewMobileForm() {
 
                         <Form.Item
                             label="Screen"
-                            name="Screen"
+                            name="screen"
 
                         >
                             <Radio.Group >
@@ -210,7 +211,7 @@ export default function AddNewMobileForm() {
                     <div>
                         <Form.Item
                             label="Color"
-                            name="Color"
+                            name="color"
 
                         >
                             <Radio.Group >

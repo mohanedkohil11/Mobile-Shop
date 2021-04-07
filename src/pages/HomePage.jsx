@@ -7,6 +7,7 @@ import styles from '../sass/layout/components/home/home.module.scss'
 export default function HomePage() {
     const [database, setDatabase] = useState([]);
     const [selectedMobile, setSelectedMobile] = useState(null);
+    const [searchResults, setSearchResults] = useState(null);
 
     useEffect(() => {
         console.log(selectedMobile);
@@ -19,8 +20,8 @@ export default function HomePage() {
     return (
         <div className={`container ${styles.home}`}>
             <div>
-                <SearchForm />
-                <DataTable database={database} setSelectedMobile={setSelectedMobile} />
+                <SearchForm database={database} setSearchResults={setSearchResults} />
+                <DataTable database={searchResults || database} setSelectedMobile={setSelectedMobile} />
                 <MobileDetails selectedMobile={selectedMobile} />
             </div>
 
