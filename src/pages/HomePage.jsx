@@ -19,7 +19,7 @@ export default function HomePage() {
 
     return (
         <div className={`container ${styles.home}`}>
-            <div style={{ visibility: 'hidden' }}>
+            <div >
                 <SearchForm database={database} setSearchResults={setSearchResults} />
                 <DataTable database={searchResults || database} setSelectedMobile={setSelectedMobile} />
                 <MobileDetails selectedMobile={selectedMobile} />
