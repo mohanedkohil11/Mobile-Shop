@@ -5,7 +5,7 @@ import SearchForm from '../components/home/SearchForm'
 import MobileDetails from '../components/home/MobileDetails'
 import styles from '../sass/layout/components/home/home.module.scss'
 export default function HomePage() {
-    const [database, setDatabase] = useState({});
+    const [database, setDatabase] = useState([]);
     const [selectedMobile, setSelectedMobile] = useState(null);
 
     useEffect(() => {
@@ -13,7 +13,7 @@ export default function HomePage() {
     }, [selectedMobile]);
 
     useEffect(() => {
-        setDatabase(JSON.parse(window.localStorage.getItem("database-think-loud")) || {})
+        setDatabase(JSON.parse(window.localStorage.getItem("database-think-loud")) || [])
     }, []);
 
     return (

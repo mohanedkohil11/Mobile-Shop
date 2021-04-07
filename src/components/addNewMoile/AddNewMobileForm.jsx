@@ -30,14 +30,14 @@ export default function AddNewMobileForm() {
             ...values, ...mobileData
         }
 
-        var database = JSON.parse(window.localStorage.getItem("database-think-loud")) || {};
-
-        if (database.hasOwnProperty(values.Brand)) {
-            database.[values.Brand].[values.Model] = mobileDataStructured;
-        }
-        else {
-            database.[values.Brand] = { [values.Model]: mobileDataStructured }
-        }
+        var database = JSON.parse(window.localStorage.getItem("database-think-loud")) || [];
+        // if (database.hasOwnProperty(values.Brand)) {
+        //     database.[values.Brand].[values.Model] = mobileDataStructured;
+        // }
+        // else {
+        //     database.[values.Brand] = { [values.Model]: mobileDataStructured }
+        // }
+        database.push(mobileDataStructured)
 
         window.localStorage.setItem(
             "database-think-loud",
@@ -59,6 +59,7 @@ export default function AddNewMobileForm() {
         e.preventDefault();
         history.push('/');
     }
+
     return (
         <Form
             {...layout}

@@ -7,7 +7,7 @@ export default function MobileDetails({ selectedMobile }) {
             {
                 selectedMobile ? (
                     <div className={`container ${styles.mobileDetails}`}>
-                        <Card title={`${selectedMobile.Brand} - ${selectedMobile.Model}`} extra={<a href="#">More</a>} style={{ width: 300 }}>
+                        <Card title={`${selectedMobile.Brand} - ${selectedMobile.Model}`} style={{ width: '48%' }}>
                             <p>Card content</p>
                             <p>Card content</p>
                             <p>Card content</p>
