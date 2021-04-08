@@ -15,7 +15,6 @@ export default function SearchForm({ database, setSearchResults }) {
         let searchResults = []
         database.map(mobile => {
 
-
             if (keywords.model && keywords.brand) {
                 if ((mobile.model.toLowerCase().includes(keywords.model.toLowerCase()) || keywords.model.toLowerCase().includes(mobile.model.toLowerCase())) && (mobile.brand == keywords.brand)) {
                     searchResults.push(mobile)
@@ -71,7 +70,7 @@ export default function SearchForm({ database, setSearchResults }) {
 
                 <div className={styles.rightSection}>
                     <Button type="primary" htmlType='submit' style={{ marginRight: '1rem' }}>Search</Button>
-                    <Button type="primary" onClick={() => setSearchResults(null)}>Clear</Button>
+                    <Button type="danger" onClick={() => setSearchResults(null)}>Clear</Button>
                 </div>
 
             </div>

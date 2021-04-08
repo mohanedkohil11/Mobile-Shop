@@ -16,7 +16,7 @@ export default function HomePage() {
     return (
         <div className={`container ${styles.home}`}>
             <div >
-                <SearchForm database={database} setSearchResults={setSearchResults} />
+                <SearchForm database={database} setSearchResults={setSearchResults} searchResults={searchResults} />
                 <DataTable database={searchResults || database} setSelectedMobile={setSelectedMobile} />
                 <MobileDetails selectedMobile={selectedMobile} />
             </div>
