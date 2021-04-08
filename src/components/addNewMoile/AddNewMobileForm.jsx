@@ -45,8 +45,8 @@ export default function AddNewMobileForm() {
 
     };
 
-    const onCheckBoxChange = (e) => {
-        setMobileData({ ...mobileData, options: { ...mobileData.options, [e.target.value]: e.target.checked } })
+    const onCheckBoxChange = (e, item) => {
+        setMobileData({ ...mobileData, options: { ...mobileData.options, [item]: e.target.checked } })
     }
 
     const onClickBackBtn = (e) => {
@@ -83,7 +83,6 @@ export default function AddNewMobileForm() {
                     <Form.Item
                         label="Brand"
                         name="brand"
-                        rules={[{ required: true, message: 'Brand Required !' }]}
                     >
                         <Select placeholder='Select brand' >
                             {
@@ -115,7 +114,7 @@ export default function AddNewMobileForm() {
                     >
                         {
                             checkBoxes.map((item, index) => {
-                                return <Checkbox key={index} value={item} onChange={onCheckBoxChange}>{item}</Checkbox>
+                                return <Checkbox key={index} onChange={(e) => onCheckBoxChange(e, item)}>{item}</Checkbox>
                             })
                         }
                     </Form.Item>
