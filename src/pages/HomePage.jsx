@@ -10,10 +10,6 @@ export default function HomePage() {
     const [searchResults, setSearchResults] = useState(null);
 
     useEffect(() => {
-        console.log(selectedMobile);
-    }, [selectedMobile]);
-
-    useEffect(() => {
         setDatabase(JSON.parse(window.localStorage.getItem("database-think-loud")) || [])
     }, []);
 

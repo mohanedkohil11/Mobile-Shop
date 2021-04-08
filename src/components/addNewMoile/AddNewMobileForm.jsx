@@ -43,11 +43,9 @@ export default function AddNewMobileForm() {
 
         history.push('/');
 
-        console.log(database);
     };
 
     const onCheckBoxChange = (e) => {
-        console.log(e.target.value, e.target.checked);
         setMobileData({ ...mobileData, options: { ...mobileData.options, [e.target.value]: e.target.checked } })
     }
 

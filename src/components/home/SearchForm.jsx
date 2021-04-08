@@ -12,30 +12,25 @@ export default function SearchForm({ database, setSearchResults }) {
     };
 
     const search = (keywords) => {
-        console.log('key', keywords);
         let searchResults = []
         database.map(mobile => {
 
 
             if (keywords.model && keywords.brand) {
                 if ((mobile.model.toLowerCase().includes(keywords.model.toLowerCase()) || keywords.model.toLowerCase().includes(mobile.model.toLowerCase())) && (mobile.brand == keywords.brand)) {
-                    console.log('case 1');
                     searchResults.push(mobile)
                 }
             } else if (keywords.model) {
                 if (mobile.model.toLowerCase().includes(keywords.model.toLowerCase()) || keywords.model.includes(mobile.model.toLowerCase())) {
-                    console.log('case 2');
                     searchResults.push(mobile)
                 }
 
             }
             else if (keywords.brand) {
                 if (mobile.brand == keywords.brand) {
-                    console.log('case 3');
                     searchResults.push(mobile)
                 }
             }
-            console.log(searchResults);
             setSearchResults([...searchResults])
 
         })
