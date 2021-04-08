@@ -4,6 +4,7 @@ import styles from '../../sass/layout/components/home/mobileDetails.module.scss'
 
 export default function MobileDetails({ selectedMobile }) {
     const mobileOptions = () => {
+        // this function is responsible for mapping through object of options and return all options of the mobile if its available
         let options = []
         for (const option in selectedMobile.options) {
             if (selectedMobile.options[option]) {
@@ -19,33 +20,43 @@ export default function MobileDetails({ selectedMobile }) {
             {
                 selectedMobile ? (
                     <div className={` ${styles.mobileDetails}`}>
-                        <Card title={`${selectedMobile.brand} - ${selectedMobile.model}`} className={styles.cardContainer}>
+                        <Card title={`${selectedMobile.brand || 'Not Specified'} - ${selectedMobile.model}`} className={styles.cardContainer}>
+
 
                             <div>
                                 <p>Year :</p>
                                 <p className={styles.option}>{selectedMobile.manfactureYear}</p>
                             </div>
 
-                            <div>
-                                <p>Memory :</p>
-                                <p className={styles.option}>{selectedMobile.memory}</p>
-                            </div>
 
-                            <div>
-                                <p>Screen :</p>
-                                <p className={styles.option}>{selectedMobile.screen}</p>
-                            </div>
+                            {selectedMobile.memory
+                                && <div>
+                                    <p>Memory :</p>
+                                    <p className={styles.option}>{selectedMobile.memory}</p>
+                                </div>
+                            }
 
-                            <div>
-                                <p>Color :</p>
-                                <p className={styles.option}>{selectedMobile.color}</p>
-                            </div>
+                            {selectedMobile.screen
+                                && <div>
+                                    <p>Screen :</p>
+                                    <p className={styles.option}>{selectedMobile.screen}</p>
+                                </div>
+                            }
 
-                            <div>
-                                <p>Options :</p>
+                            {selectedMobile.color
+                                && (<div>
+                                    <p>Color :</p>
+                                    <p className={styles.option}>{selectedMobile.color}</p>
+                                </div>)
+                            }
 
-                                {mobileOptions()}
-                            </div>
+                            {selectedMobile.options
+                                && <div>
+                                    <p>Options :</p>
+
+                                    {mobileOptions()}
+                                </div>
+                            }
 
                         </Card>
                     </div>

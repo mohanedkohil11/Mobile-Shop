@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from "react-router-dom";
 import styles from "../sass/layout/reusable/header.module.scss"
 export default function Header() {
+
+    // Header component countains the routes of the page 
     return (
         <div className={styles.header}>
             <div className='container'>

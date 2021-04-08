@@ -7,7 +7,7 @@ export default function DataTable({ database, setSelectedMobile }) {
         return database.length > 0 ? database.map((mobileData, index) => {
             return (
                 <Fragment key={index}>
-                    <tr key={index} onClick={() => { setSelectedMobile(mobileData) }}>
+                    <tr key={index} onClick={() => { setSelectedMobile(mobileData) }} >
                         <td>{mobileData.brand}</td>
                         <td>{mobileData.model}</td>
                         <td>{mobileData.manfactureYear}</td>

@@ -12,21 +12,28 @@ export default function SearchForm({ database, setSearchResults }) {
     };
 
     const search = (keywords) => {
+        // this function is responsible for seaching inside database by mapping through its all items and comparing it by the keywords entered by user
         let searchResults = []
         database.map(mobile => {
 
             if (keywords.model && keywords.brand) {
+                // case 1 : if user searches by model and brand 
                 if ((mobile.model.toLowerCase().includes(keywords.model.toLowerCase()) || keywords.model.toLowerCase().includes(mobile.model.toLowerCase())) && (mobile.brand == keywords.brand)) {
+                    // Checking if the model and brand is included in database
                     searchResults.push(mobile)
                 }
             } else if (keywords.model) {
+                // case 2 : if user searches by only MODEL
                 if (mobile.model.toLowerCase().includes(keywords.model.toLowerCase()) || keywords.model.includes(mobile.model.toLowerCase())) {
+                    // checking if model (string) included in side any model in  database
                     searchResults.push(mobile)
                 }
 
             }
             else if (keywords.brand) {
+                // case 3 : if user searches by only BRAND
                 if (mobile.brand == keywords.brand) {
+                    // checking if brand equal to brand in database in this case function will return all mobiles from this brand
                     searchResults.push(mobile)
                 }
             }
