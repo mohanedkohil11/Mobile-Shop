@@ -1,38 +1,86 @@
-import React from 'react'
-import { Button, Input } from 'antd';
+import React from 'react';
+import { Button, Input, Radio, Form } from 'antd';
 import { Select } from 'antd';
+import styles from '../../sass/layout/components/home/searchForm.module.scss';
 const { Option } = Select;
-import styles from '../../sass/layout/components/home/searchForm.module.scss'
-export default function SearchForm() {
+
+export default function SearchForm({ database, setSearchResults }) {
     const brands = ['Sony', 'Samsung', 'Apple', 'Nokia', 'LG'];
+    const layout = {
+        labelCol: { span: 8 },
+        wrapperCol: { span: 16 },
+    };
+
+    const search = (keywords) => {
+        console.log('key', keywords);
+        let searchResults = []
+        database.map(mobile => {
+
+
+            if (keywords.model && keywords.brand) {
+                if ((mobile.model.toLowerCase().includes(keywords.model.toLowerCase()) || keywords.model.toLowerCase().includes(mobile.model.toLowerCase())) && (mobile.brand == keywords.brand)) {
+                    console.log('case 1');
+                    searchResults.push(mobile)
+                }
+            } else if (keywords.model) {
+                if (mobile.model.toLowerCase().includes(keywords.model.toLowerCase()) || keywords.model.includes(mobile.model.toLowerCase())) {
+                    console.log('case 2');
+                    searchResults.push(mobile)
+                }
+
+            }
+            else if (keywords.brand) {
+                if (mobile.brand == keywords.brand) {
+                    console.log('case 3');
+                    searchResults.push(mobile)
+                }
+            }
+            console.log(searchResults);
+            setSearchResults([...searchResults])
+
+        })
+    }
+
     return (
-        <div className={styles.searchForm}>
+        <Form
+            {...layout}
+            onFinish={search}
+        >
+            <div className={styles.searchForm}>
 
-            <div className={styles.leftSection}>
+                <div className={styles.leftSection}>
 
-                <div className={styles.inputContainer}>
-                    <div>Model :</div>
-                    <Input placeholder='Enter Model Name' />
+
+                    <Form.Item
+                        label="Model"
+                        name="model"
+                    >
+                        <Input placeholder='Enter Model Name' />
+                    </Form.Item>
+
+                    <Form.Item
+                        label="Brand"
+                        name="brand"
+                    >
+                        <Select placeholder='Select brand' >
+                            <Option key='all' value={null}>All</Option>
+                            {
+                                brands.map(brand => {
+                                    return <Option key={brand} value={brand}>{brand}</Option>
+                                })
+                            }
+                        </Select>
+                    </Form.Item>
+
                 </div>
 
-                <div className={styles.inputContainer}>
-
-                    <div>Brand : </div>
-
-                    <Select placeholder='Select brand' style={{ width: '70%' }}>
-                        {
-                            brands.map(brand => {
-                                return <Option key={brand} value={brand}>{brand}</Option>
-                            })
-                        }
-                    </Select>
-
+                <div className={styles.rightSection}>
+                    <Button type="primary" htmlType='submit'>Search</Button>
+                    <Button type="primary" onClick={() => setSearchResults(null)}>Clear</Button>
                 </div>
 
             </div>
+        </Form>
 
-            <div className={styles.rightSection}><Button type="primary">Search</Button></div>
-
-        </div>
     )
 }
