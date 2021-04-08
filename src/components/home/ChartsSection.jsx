@@ -13,7 +13,7 @@ export default function ChartsSection({ database }) {
         })
         setBarChartData({ ...barChartData });
         setDonutChartData({ ...donnutChartData });
-    });
+    }, [database]);
 
     const barChartService = {
 

@@ -19,7 +19,7 @@ export default function MobileDetails({ selectedMobile }) {
             {
                 selectedMobile ? (
                     <div className={` ${styles.mobileDetails}`}>
-                        <Card title={`${selectedMobile.Brand} - ${selectedMobile.Model}`} className={styles.cardContainer}>
+                        <Card title={`${selectedMobile.brand} - ${selectedMobile.model}`} className={styles.cardContainer}>
 
                             <div>
                                 <p>Year :</p>

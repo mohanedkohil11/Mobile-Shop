@@ -4,7 +4,7 @@ export default function DataTable({ database, setSelectedMobile }) {
 
     const mobileRowData = () => {
 
-        return database.map(mobileData => {
+        return database.length > 0 ? database.map(mobileData => {
             return (
                 <Fragment key={mobileData.Model}>
                     <tr onClick={() => { setSelectedMobile(mobileData) }}>
@@ -14,7 +14,7 @@ export default function DataTable({ database, setSelectedMobile }) {
                     </tr>
                 </Fragment>
             )
-        })
+        }) : <tr ><td colSpan='3' style={{ textAlign: 'center' }}>No Data</td></tr>
 
 
     }
