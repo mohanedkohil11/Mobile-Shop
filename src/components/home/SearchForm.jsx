@@ -75,7 +75,7 @@ export default function SearchForm({ database, setSearchResults }) {
                 </div>
 
                 <div className={styles.rightSection}>
-                    <Button type="primary" htmlType='submit'>Search</Button>
+                    <Button type="primary" htmlType='submit' style={{ marginRight: '1rem' }}>Search</Button>
                     <Button type="primary" onClick={() => setSearchResults(null)}>Clear</Button>
                 </div>
 

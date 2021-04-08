@@ -33,12 +33,7 @@ export default function AddNewMobileForm() {
         }
 
         var database = JSON.parse(window.localStorage.getItem("database-think-loud")) || [];
-        // if (database.hasOwnProperty(values.Brand)) {
-        //     database.[values.Brand].[values.Model] = mobileDataStructured;
-        // }
-        // else {
-        //     database.[values.Brand] = { [values.Model]: mobileDataStructured }
-        // }
+
         database.push(mobileDataStructured)
 
         window.localStorage.setItem(
@@ -79,11 +74,6 @@ export default function AddNewMobileForm() {
                         <Input placeholder='Enter Model Name' />
                     </Form.Item>
 
-                    {/* <div className={styles.inputContainer}>
-                        <div>Model :</div>
-                        <Input placeholder='Enter Model Name' />
-                    </div> */}
-
                     <Form.Item
                         label="Manfacture year"
                         name="manfactureYear"
@@ -91,11 +81,6 @@ export default function AddNewMobileForm() {
                     >
                         <Input type='number' min={1} placeholder='Enter Manfacture Year' />
                     </Form.Item>
-
-                    {/* <div className={styles.inputContainer}>
-                        <div> Manfacture year :</div>
-                        <Input type='number' min={1} placeholder='Enter Model Name' required />
-                    </div> */}
 
                     <Form.Item
                         label="Brand"
@@ -111,19 +96,6 @@ export default function AddNewMobileForm() {
                         </Select>
                     </Form.Item>
 
-                    {/* 
-                    <div className={styles.inputContainer}>
-                        <div>Brand : </div>
-
-                        <Select placeholder='Select Brand' style={{ width: '70%' }}>
-                            {
-                                brands.map(brand => {
-                                    return <Option key={brand} value={brand}>{brand}</Option>
-                                })
-                            }
-                        </Select>
-                    </div> */}
-
                     <Form.Item
                         label="Memory"
                         name="memory"
@@ -136,18 +108,6 @@ export default function AddNewMobileForm() {
                             }
                         </Select>
                     </Form.Item>
-
-                    {/* <div className={styles.inputContainer}>
-                        <div>Memory : </div>
-
-                        <Select placeholder='Select brand' style={{ width: '70%' }}>
-                            {
-                                memory.map(brand => {
-                                    return <Option key={brand} value={brand}>{brand}</Option>
-                                })
-                            }
-                        </Select>
-                    </div> */}
 
                 </div>
 
@@ -162,29 +122,7 @@ export default function AddNewMobileForm() {
                         }
                     </Form.Item>
 
-                    {/* <div>
-
-                        {
-                            checkBoxes.map((item, index) => {
-                                return <Checkbox key={index}>{item}</Checkbox>
-                            })
-                        }
-
-                    </div> */}
                     <div>
-                        {/* <div>Screen :</div>
-                        <Radio.Group >
-                            <Radio value={1}>
-                                Option A
-                            </Radio>
-                            <Radio value={2}>
-                                Option B
-                            </Radio>
-                            <Radio value={3}>
-                                Option C
-                            </Radio>
-
-                        </Radio.Group> */}
 
                         <Form.Item
                             label="Screen"
@@ -208,6 +146,7 @@ export default function AddNewMobileForm() {
                             </Radio.Group>
                         </Form.Item>
                     </div>
+
                     <div>
                         <Form.Item
                             label="Color"
@@ -230,19 +169,6 @@ export default function AddNewMobileForm() {
 
                             </Radio.Group>
                         </Form.Item>
-                        {/* <div>Color :</div>
-                        <Radio.Group >
-                            <Radio value={1}>
-                                Option A
-                            </Radio>
-                            <Radio value={2}>
-                                Option B
-                            </Radio>
-                            <Radio value={3}>
-                                Option C
-                            </Radio>
-
-                        </Radio.Group> */}
                     </div>
                 </div>
 
@@ -260,11 +186,6 @@ export default function AddNewMobileForm() {
 
                 </Form.Item>
             </div>
-
-
-
-
-
 
         </Form >
     )
