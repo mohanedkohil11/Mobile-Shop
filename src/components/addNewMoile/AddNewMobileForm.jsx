@@ -32,12 +32,12 @@ export default function AddNewMobileForm() {
             ...values, ...mobileData
         }
 
-        var database = JSON.parse(window.localStorage.getItem("database-think-loud")) || [];
+        var database = JSON.parse(window.localStorage.getItem("database-mobile-shop")) || [];
 
         database.push(mobileDataStructured)
 
         window.localStorage.setItem(
-            "database-think-loud",
+            "database-mobile-shop",
             JSON.stringify(database)
         );
 

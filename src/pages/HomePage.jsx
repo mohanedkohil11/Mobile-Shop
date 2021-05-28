@@ -10,7 +10,7 @@ export default function HomePage() {
     const [searchResults, setSearchResults] = useState(null);
 
     useEffect(() => {
-        setDatabase(JSON.parse(window.localStorage.getItem("database-think-loud")) || [])
+        setDatabase(JSON.parse(window.localStorage.getItem("database-mobile-shop")) || [])
     }, []);
 
     return (
